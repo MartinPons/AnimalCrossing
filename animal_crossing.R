@@ -125,7 +125,7 @@ tidy_user_reviews <- user_reviews %>%
 
 # getting data ready for radar plot # 
 
-# wrangling of each data set (see helpler functions above)
+# wrangling of each data set (see helpler function above)
 critic_reviews_nrc <- get_data_ready_for_radar(tidy_critic, "Critics")
 user_reviews_nrc <- get_data_ready_for_radar(tidy_user_reviews, "Users")
 
