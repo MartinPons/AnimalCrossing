@@ -22,11 +22,12 @@ library(here)
 
 get_data_ready_for_radar <- function(dat, group) {
   
-  # data.frame -> data.frame
+  # data.frame, character -> data.frame
   
   # produces nrc sentiment data ready to be plotted with the ggradar function, 
   # using nrc sentiment dictionary and getting tidy tokenized data 
-  # witn tokens labeled with the word "word"
+  # witn tokens labeled with the word "word". "group" determines the
+  # group to be used in ggradar
   
   dat %>% 
     
@@ -59,7 +60,6 @@ get_data_ready_for_radar <- function(dat, group) {
 
 critic <- readr::read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/critic.tsv')
 user_reviews <- readr::read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/user_reviews.tsv')
-
 
 
 # DATA WRANGLING ----------------------------------------------------------
@@ -125,7 +125,7 @@ tidy_user_reviews <- user_reviews %>%
 
 # getting data ready for radar plot # 
 
-# wrangling of each data set (see helpler functions above)
+# wrangling of each data set (see helpler function above)
 critic_reviews_nrc <- get_data_ready_for_radar(tidy_critic, "Critics")
 user_reviews_nrc <- get_data_ready_for_radar(tidy_user_reviews, "Users")
 
@@ -133,8 +133,6 @@ user_reviews_nrc <- get_data_ready_for_radar(tidy_user_reviews, "Users")
 radar_data <- user_reviews_nrc %>% 
   bind_rows(critic_reviews_nrc) %>% 
   mutate()
-
-
 
 
 # VISUALIZATION -----------------------------------------------------------
@@ -154,6 +152,7 @@ radar_data <- user_reviews_nrc %>%
 
 # color palette
 plots_palette <- c("#ad5d51", "grey55")
+
 
 ## Grade and review length plot ##
 
@@ -213,7 +212,6 @@ grade_plot <- ggplotGrob(
 )
    
     
-
 ## NRC sentiment radar plot ##
 
 # grob object
@@ -224,7 +222,6 @@ sent_plot <- ggplotGrob(
     # radar plot
   ggradar(group.point.size = 5, group.colours = plots_palette,
           plot.legend = F))
-
 
 
 ## Plot arrangement ##
@@ -256,7 +253,7 @@ grid.arrange(plot_legend, title_grobs, plot_grobs, caption_grob, ncol = 1, heigh
                             gp = gpar(fontfamily = "Georgia", col = "grey55", cex = 2)))
 
 
-# uncomment the following section to convert the plot as a grob and save it in disk
+# uncomment the following section to turn the plot into a grob and save it in disk
 # final_plot <- arrangeGrob(plot_legend, title_grobs, plot_grobs, caption_grob, ncol = 1, heights = c(1, 1, 8, 0.5),
 #                           top = textGrob("Review comparison of Animal Crossing. Users vs. Critics",
 #                                          gp = gpar(fontfamily = "Georgia", col = "grey55", cex = 2)))
