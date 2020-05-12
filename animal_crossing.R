@@ -61,7 +61,6 @@ critic <- readr::read_tsv('https://raw.githubusercontent.com/rfordatascience/tid
 user_reviews <- readr::read_tsv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/user_reviews.tsv')
 
 
-
 # DATA WRANGLING ----------------------------------------------------------
 
 ## Reviews grades and length ##
@@ -134,8 +133,6 @@ radar_data <- user_reviews_nrc %>%
   bind_rows(critic_reviews_nrc)
 
 
-
-
 # VISUALIZATION -----------------------------------------------------------
 
 # Note: you'll have to uncomment the two lines in the next paragraph if you use extrafont library 
@@ -153,6 +150,7 @@ radar_data <- user_reviews_nrc %>%
 
 # color palette
 plots_palette <- c("#ad5d51", "grey55")
+
 
 ## Grade and review length plot ##
 
@@ -212,7 +210,6 @@ grade_plot <- ggplotGrob(
 )
    
     
-
 ## NRC sentiment radar plot ##
 
 # grob object
@@ -223,7 +220,6 @@ sent_plot <- ggplotGrob(
     # radar plot
   ggradar(group.point.size = 5, group.colours = plots_palette,
           plot.legend = F))
-
 
 
 ## Plot arrangement ##
