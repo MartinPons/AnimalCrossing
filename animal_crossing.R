@@ -129,10 +129,9 @@ tidy_user_reviews <- user_reviews %>%
 critic_reviews_nrc <- get_data_ready_for_radar(tidy_critic, "Critics")
 user_reviews_nrc <- get_data_ready_for_radar(tidy_user_reviews, "Users")
 
-# biding the to datasets
+# biding the two datasets
 radar_data <- user_reviews_nrc %>% 
-  bind_rows(critic_reviews_nrc) %>% 
-  mutate()
+  bind_rows(critic_reviews_nrc)
 
 
 # VISUALIZATION -----------------------------------------------------------
