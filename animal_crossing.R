@@ -22,11 +22,12 @@ library(here)
 
 get_data_ready_for_radar <- function(dat, group) {
   
-  # data.frame -> data.frame
+  # data.frame, character -> data.frame
   
   # produces nrc sentiment data ready to be plotted with the ggradar function, 
   # using nrc sentiment dictionary and getting tidy tokenized data 
-  # witn tokens labeled with the word "word"
+  # witn tokens labeled with the word "word". "group" determines the
+  # group to be used in ggradar
   
   dat %>% 
     
