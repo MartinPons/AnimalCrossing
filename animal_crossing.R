@@ -252,7 +252,7 @@ grid.arrange(plot_legend, title_grobs, plot_grobs, caption_grob, ncol = 1, heigh
                             gp = gpar(fontfamily = "Georgia", col = "grey55", cex = 2)))
 
 
-# uncomment the following section to convert the plot as a grob and save it in disk
+# uncomment the following section to convert the plot to a grob and save it in disk
 # final_plot <- arrangeGrob(plot_legend, title_grobs, plot_grobs, caption_grob, ncol = 1, heights = c(1, 1, 8, 0.5),
 #                           top = textGrob("Review comparison of Animal Crossing. Users vs. Critics",
 #                                          gp = gpar(fontfamily = "Georgia", col = "grey55", cex = 2)))
