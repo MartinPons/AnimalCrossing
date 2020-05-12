@@ -50,7 +50,7 @@ get_data_ready_for_radar <- function(dat, group) {
     mutate(group = group) %>% 
     
     # rearranging variables: grouping variable must be in the first column
-    select(group, Anger, Anticipation, Disgust, Fear, Joy, Sadness, Surprise, Trust)
+    select(group, Joy, Trust, Fear, Surprise, Sadness, Disgust, Anger, Anticipation, Trust)
   
   
 }
@@ -131,7 +131,8 @@ user_reviews_nrc <- get_data_ready_for_radar(tidy_user_reviews, "Users")
 
 # biding the to datasets
 radar_data <- user_reviews_nrc %>% 
-  bind_rows(critic_reviews_nrc)
+  bind_rows(critic_reviews_nrc) %>% 
+  mutate()
 
 
 
