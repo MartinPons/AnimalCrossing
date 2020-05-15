@@ -12,6 +12,7 @@
 library(tidyverse)
 library(tidytext)
 library(stringr)
+library(scales)
 library(ggradar)
 library(extrafont)
 library(grid)
